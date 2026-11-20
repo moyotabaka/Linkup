@@ -7,7 +7,7 @@ export const firebaseConfig = {
   storageBucket: "linkup-4f542.firebasestorage.app",
   messagingSenderId: "709688085486",
   appId: "1:709688085486:web:39bfc54253015217c51cff",
-  measurementId: "G-PYCDSNF5TL"
+  measurementId: "G-PYCDSNFSTL"
 };
 
 export const configured = !Object.values(firebaseConfig).some((v) =>
