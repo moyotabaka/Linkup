@@ -1,7 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyC1MZEmgfIedVuRqHTjhkoJKjwvCyhLUmc",
+  apiKey: "AIzaSyCiMZEmgfIedVuRqHTjhkoJKjwvCyhLUmc",
   authDomain: "linkup-4f542.firebaseapp.com",
   projectId: "linkup-4f542",
   storageBucket: "linkup-4f542.firebasestorage.app",
