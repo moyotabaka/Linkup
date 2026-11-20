@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="LinkUp — a campus community to meet people, make plans and share moments.">
+<title>LinkUp — Find your people</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="shell">
+<aside class="sidebar" id="sidebar">
+  <a class="brand" href="#" data-page="home">linkup<span>.</span></a>
+  <div class="nav-label">YOUR SPACE</div>
+  <nav>
+    <button class="nav active" data-page="home">⌂ <span>Home</span></button>
+    <button class="nav" data-page="discover">⌕ <span>Discover</span></button>
+    <button class="nav" data-page="hangouts">＋ <span>Hangouts</span></button>
+    <button class="nav" data-page="people">♧ <span>Find people</span></button>
+    <button class="nav" data-page="community">▤ <span>Community</span></button>
+    <button class="nav" data-page="polls">◉ <span>Polls</span></button>
+    <button class="nav" data-page="profile">◎ <span>My profile</span></button>
+  </nav>
+  <div class="side-bottom"><div class="mini-user"><img id="sidePhoto" alt=""><span id="sideName">Not signed in</span></div><button class="btn ghost full" id="sideAuth">Sign in / Create account</button></div>
+</aside>
+<main>
+<header class="topbar"><button class="icon mobile-menu" id="menu">☰</button><div class="crumb">Campus community <b>/</b> <span id="crumb">Home</span></div><div class="top-actions"><button class="btn soft" data-invite>＋ Invite friends</button><button class="btn outline" id="authOpen">Sign in</button><img class="top-photo" id="topPhoto" alt="Profile"></div></header>
+<div class="content">
+<section class="page active" id="page-home">
+  <div class="hero"><div><div class="eyebrow">YOUR CAMPUS. YOUR COMMUNITY.</div><h1 id="welcome">Find your people.<br>Find your plans.</h1><p>Real students, real plans and moments worth sharing.</p><button class="btn primary" data-page="community">Share something</button></div><div class="hero-orb">✦<small>good things happen together</small></div></div>
+  <div class="section-title"><div><div class="eyebrow">HAPPENING NOW</div><h2>Latest events</h2></div><button class="link" data-page="discover">See all</button></div><div class="cards" id="homeEvents"></div>
+  <div class="section-title"><div><div class="eyebrow">FROM YOUR CAMPUS</div><h2>Latest community posts</h2></div><button class="link" data-page="community">Open community</button></div><div id="homePosts" class="feed"></div>
+</section>
+
+<section class="page" id="page-discover">
+ <div class="page-head"><div class="eyebrow">DISCOVER YOUR CAMPUS</div><h1>Events</h1><p>Events published by LinkUp members. No preset listings.</p></div>
+ <form class="panel form" id="eventForm"><h2>Publish an event</h2><div class="form-grid">
+ <label>Event name<input name="title" required maxlength="90"></label><label>Category<select name="category"><option>Social</option><option>Music</option><option>Food</option><option>Sports</option><option>Gaming</option><option>Academic</option><option>Arts</option><option>Other</option></select></label>
+ <label>Date<input type="date" name="date" required></label><label>Time<input type="time" name="time" required></label>
+ <label>Location<input name="location" required maxlength="120"></label><label>Capacity<input name="capacity" type="number" min="2" max="500" value="30" required></label>
+ </div><label>Description<textarea name="description" required maxlength="800"></textarea></label><button class="btn primary">Publish event</button></form>
+ <div class="toolbar"><input id="eventSearch" placeholder="Search events by name, category or place…"><select id="eventFilter"><option>All categories</option><option>Social</option><option>Music</option><option>Food</option><option>Sports</option><option>Gaming</option><option>Academic</option><option>Arts</option><option>Other</option></select></div><div class="cards" id="events"></div><div class="empty" id="eventsEmpty">No events have been published yet. Be the first to add one.</div>
+</section>
+
+<section class="page" id="page-hangouts">
+ <div class="page-head"><div class="eyebrow">MAKE A PLAN</div><h1>Hangouts</h1><p>Create a plan or join one shared by another student.</p></div>
+ <form class="panel form" id="hangoutForm"><h2>Create a hangout</h2><div class="form-grid">
+ <label>What's the plan?<input name="title" required maxlength="80"></label><label>Category<select name="category"><option>Social</option><option>Study</option><option>Food</option><option>Music</option><option>Sports</option><option>Gaming</option><option>Adventure</option><option>Other</option></select></label>
+ <label>Date<input type="date" name="date" required></label><label>Time<input type="time" name="time" required></label>
+ <label>Location / meeting link<input name="location" required maxlength="140"></label><label>Budget<select name="budget"><option>Free</option><option>Low</option><option>Medium</option><option>Flexible</option></select></label>
+ <label>Group size<select name="groupSize"><option>Small</option><option>Medium</option><option>Large</option></select></label><label>Format<select name="format"><option>In person</option><option>Online</option><option>Either</option></select></label>
+ <label>Access preference<select name="accessibility"><option>Any</option><option>Quiet</option><option>Beginner-friendly</option><option>Accessible venue</option></select></label><label>Maximum people<input name="capacity" type="number" min="2" max="100" value="8" required></label>
+ </div><label>Description<textarea name="description" required maxlength="700"></textarea></label><button class="btn primary">Publish hangout</button></form>
+ <div class="toolbar"><select id="hangoutCategory"><option>All categories</option><option>Social</option><option>Study</option><option>Food</option><option>Music</option><option>Sports</option><option>Gaming</option><option>Adventure</option><option>Other</option></select><select id="hangoutBudget"><option>All budgets</option><option>Free</option><option>Low</option><option>Medium</option><option>Flexible</option></select></div><div class="cards" id="hangoutsList"></div><div class="empty" id="hangoutsEmpty">No hangouts yet. Create the first one.</div>
+</section>
+
+<section class="page" id="page-people">
+ <div class="page-head"><div class="eyebrow">MEET YOUR COMMUNITY</div><h1>Find people</h1><p>Discover students who have joined LinkUp.</p></div>
+ <div class="toolbar"><input id="peopleSearch" placeholder="Search by name, course or interest…"></div><div id="requests" class="panel"></div><div class="cards people" id="peopleList"></div><div class="empty" id="peopleEmpty">No other student profiles yet. Invite your friends to join.</div>
+</section>
+
+<section class="page" id="page-community">
+ <div class="page-head"><div class="eyebrow">SHARE YOUR MOMENTS</div><h1>Community</h1><p>Post photos, campus updates, event announcements and recaps.</p></div>
+ <form class="panel form composer" id="postForm"><h2>Create a post</h2><label>What's happening?<textarea name="text" maxlength="1500" placeholder="Share a moment with your campus…" required></textarea></label>
+ <div class="form-grid"><label>Post type<select name="kind"><option value="update">Campus update</option><option value="upcoming">Upcoming event</option><option value="recap">Event recap</option></select></label><label>Event name (optional)<input name="eventTitle" maxlength="100" placeholder="Name of the event"></label></div>
+ <label class="upload">＋ Add a photo<input type="file" id="postPhoto" accept="image/png,image/jpeg,image/webp"></label><div id="postPreview"></div><button class="btn primary">Publish post</button></form>
+ <div class="toolbar"><select id="postFilter"><option value="all">All posts</option><option value="upcoming">Upcoming events</option><option value="recap">Event recaps</option><option value="update">Campus updates</option></select></div><div class="feed" id="feed"></div><div class="empty" id="feedEmpty">No community posts yet. Be the first to post.</div>
+</section>
+
+<section class="page" id="page-polls">
+ <div class="page-head"><div class="eyebrow">DECIDE TOGETHER</div><h1>Polls</h1><p>Create questions and vote in polls published by students.</p></div>
+ <form class="panel form" id="pollForm"><h2>Create a poll</h2><label>Question<input name="question" required maxlength="180" placeholder="What should we do this weekend?"></label><div id="pollOptions"><label>Option 1<input name="option" required maxlength="80"></label><label>Option 2<input name="option" required maxlength="80"></label></div><button type="button" class="btn ghost" id="addPollOption">＋ Add another option</button><button class="btn primary">Publish poll</button></form>
+ <div class="cards" id="pollList"></div><div class="empty" id="pollEmpty">No polls yet. Start the first campus poll.</div>
+</section>
+
+<section class="page" id="page-profile">
+ <div class="page-head"><div class="eyebrow">YOUR LINKUP PROFILE</div><h1>My profile</h1><p>Your profile, interests, connections and activity.</p></div>
+ <div class="profile-layout"><div class="panel profile-card"><div class="cover"></div><img class="profile-photo" id="profilePhoto" alt="Your profile photo"><h2 id="profileName">Your name</h2><p id="profileBio" class="muted">Add a bio to introduce yourself.</p><p id="profileMeta" class="muted"></p><div class="stats"><div><b id="friendCount">0</b><small>Friends</small></div><div><b id="myPostCount">0</b><small>Posts</small></div><div><b id="myEventCount">0</b><small>Events</small></div></div><button class="btn primary full" id="editProfile">Edit profile</button><button class="btn ghost full" id="profileSignOut">Sign out</button></div>
+ <div class="panel form"><h2>Your interests</h2><p class="muted">Edit the interests that help people find you.</p><div id="profileInterests" class="tags"></div><h2>Your activity</h2><div id="profileActivity" class="activity"></div><button class="btn outline" id="editActivity">Edit profile and interests</button></div></div>
+</section>
+<footer>LinkUp · Made for campus life</footer>
+</div></main></div>
+
+<dialog id="authDialog" class="dialog"><form id="authForm" class="form"><button type="button" class="close" data-close="authDialog">×</button><div class="eyebrow">WELCOME TO LINKUP</div><h2 id="authTitle">Create your account</h2><p class="muted">Use an email and password, or continue with Google.</p><label>Email<input name="email" type="email" autocomplete="email" required></label><label>Password<input name="password" type="password" minlength="6" autocomplete="current-password" required></label><button class="btn primary full" id="emailAuth">Create account</button><button type="button" class="btn outline full" id="toggleAuth">Already have an account? Sign in</button><button type="button" class="btn outline full" id="googleAuth">Continue with Google</button><button type="button" class="btn outline full" id="appleAuth">Continue with Apple</button><p id="authMessage" class="status">Set up Firebase to enable accounts.</p></form></dialog>
+<dialog id="profileDialog" class="dialog"><form id="profileForm" class="form"><button type="button" class="close" data-close="profileDialog">×</button><h2>Edit your profile</h2><label>Full name<input name="name" maxlength="60" required></label><label>Bio<textarea name="bio" maxlength="240"></textarea></label><label>Course / department<input name="course" maxlength="80"></label><label>Year of study<input name="year" maxlength="40"></label><label>Interests (separate with commas)<input name="interests" placeholder="Music, coding, football"></label><label>Profile photo<input name="photo" type="file" accept="image/png,image/jpeg,image/webp"></label><button class="btn primary full">Save profile</button><p class="status" id="profileMessage"></p></form></dialog>
+<dialog id="inviteDialog" class="dialog"><div class="form"><button class="close" data-close="inviteDialog">×</button><h2>Invite friends</h2><p class="muted">Share the LinkUp website with classmates.</p><input id="inviteUrl" readonly><button class="btn primary full" id="copyInvite">Copy invitation link</button><button class="btn outline full" id="shareInvite">Share</button></div></dialog>
+<div id="toast" class="toast"></div>
+<script type="module" src="app.js"></script>
+</body></html>
