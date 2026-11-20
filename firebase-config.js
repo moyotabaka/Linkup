@@ -1,8 +1,5 @@
-// Import the functions you need from the SDKs you need (CDN URLs for browser use)
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics.js";
 
-// Your web app's Firebase configuration
 export const firebaseConfig = {
   apiKey: "AIzaSyC1MZEmgfIedVuRqHTjhkoJKjwvCyhLUmc",
   authDomain: "linkup-4f542.firebaseapp.com",
@@ -13,8 +10,8 @@ export const firebaseConfig = {
   measurementId: "G-PYCDSNF5TL"
 };
 
-export const configured = !Object.values(firebaseConfig).some((v) => String(v).startsWith("PASTE_"));
+export const configured = !Object.values(firebaseConfig).some((v) =>
+  String(v).startsWith("PASTE_")
+);
 
-// Initialize Firebase
 export const app = initializeApp(firebaseConfig);
-export const analytics = getAnalytics(app);
